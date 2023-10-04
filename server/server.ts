@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import app from './app';
+import app from './app.ts';
 import mongoose from 'mongoose';
 
 dotenv.config({ path: '.env.local' });
