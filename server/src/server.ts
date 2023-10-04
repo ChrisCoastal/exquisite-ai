@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import app, { httpServer } from './app';
+import { httpServer } from 'src/app';
 import mongoose from 'mongoose';
 
 dotenv.config({ path: '.env.local' });
@@ -14,7 +14,7 @@ mongoose
   .then(() => console.log('DB connected'))
   .catch((err) => console.log(err));
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4001;
 // app.listen(PORT, () => {
 //   console.log(`Server listening on port ${PORT}`);
 // });

@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "graphql-codegen --config codegen.yml",
-    "dev": "tsx server.ts",
-    "start": "node server.js"
+    "dev": "tsx src/server.ts",
+    "start": "node src/server.ts"
   },
   "author": "ChrisCoastal",
   "license": "ISC",

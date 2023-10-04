@@ -11,7 +11,7 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { resolvers } from './schema';
+import { resolvers } from 'src/graphql';
 
 interface MyContext {
   token?: string;
@@ -19,19 +19,14 @@ interface MyContext {
 
 // Required logic for integrating with Express
 const app = express();
-// app.all('/graphql', createHandler({ schema }));
-// Our httpServer handles incoming requests to our Express app.
-// Below, we tell Apollo Server to "drain" this httpServer,
-// enabling our servers to shut down gracefully.
 export const httpServer = http.createServer(app);
 
-// Same ApolloServer initialization as before, plus the drain plugin
-// for our httpServer.
-const typeDefs = fs.readFileSync(`schema/schema.graphql`, 'utf8');
+// read from schema.graphql (alternatively can write in schema.ts)
+const typeDefs = fs.readFileSync(`src/graphql/schema.graphql`, 'utf8');
 const server = new ApolloServer<MyContext>({
   typeDefs,
   resolvers,
-  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })], // better server shutdown
 });
 // Ensure we wait for our Apollo server to start
 await server.start();
@@ -82,4 +77,4 @@ app.get('/', (req, res) => {
 //   })
 // );
 
-export default app;
+// export default app;
