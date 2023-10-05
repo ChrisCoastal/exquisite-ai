@@ -46,6 +46,7 @@ app.use(
 
 // Modified server startup
 app.get('/', (req, res) => {
+  console.log(req);
   res.send('Hello world!');
 });
 // await new Promise<void>((resolve) =>

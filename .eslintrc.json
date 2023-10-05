@@ -9,5 +9,8 @@
       "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
     }
   ],
-  "allowImportingTsExtensions": true
+  "allowImportingTsExtensions": true,
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }
